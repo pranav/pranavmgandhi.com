@@ -11,8 +11,12 @@ body {
 }
 
 #container {
-    margin:50px auto;
+    margin:auto;
     width:800px;
+}
+
+#head {
+    margin:25px auto;
 }
 
 #head h1 {
@@ -35,4 +39,11 @@ a {
 
 a:hover {
     text-decoration:underline;
+}
+
+#content {
+    background:white;
+    padding:25px;
+    border:1px #ccc solid;
+    border-radius:5px;
 }

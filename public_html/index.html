@@ -3,12 +3,23 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <title>Pranav M Gandhi - Hacker Extraordinaire</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var pages = [];
+        $.getJSON('data.json', function(data){pages = data;});
+        $('.linklist a').live('click',function(e){
+            $('#content').html(pages[$(this).attr("href").substring(1)]);
+        });
+    });
+
+    </script>
 </head>
 <body>
     <div id="container">
         <div id="head">
             <h1>Pranav Gandhi/<span class="currentpage">#Welcome</span></h1>
-            <div class="linki walist">
+            <div class="linklist">
                 <a href="#welcome">#Welcome</a>
                 <a href="#aboutme">#AboutMe</a>
                 <a href="#realmofracket">#Realm of Racket</a>
@@ -16,6 +27,9 @@
                 <a href="#pbrane">#pBrane</a>
                 <a href="#resume">#Resume</a>
             </div>
+        </div>
+        <div id="content">
+            <p>LOLOLOL</p>
         </div>
     </div>
 </body>
