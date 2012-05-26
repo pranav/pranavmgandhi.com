@@ -1,0 +1,38 @@
+/* Pranav Gandhi's stylesheet */
+
+* {
+    margin:0;
+    padding:0;
+    font-family:"Open Sans", Helvetica, Arial, sans-serif;
+}
+
+body {
+    background:#fafafa;
+}
+
+#container {
+    margin:50px auto;
+    width:800px;
+}
+
+#head h1 {
+    size:28px;
+}
+
+h1 span.currentpage {
+    size:24px;
+    color:#777;
+}
+
+.linklist a {
+    margin-right:15px;
+}
+
+a {
+    color:#08c;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
