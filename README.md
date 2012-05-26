@@ -1,4 +1,4 @@
-pranavmgandhi.com
+PranavMGandhi.com
 =================
 
-Git repo for my website
+Just the git repository for my personal website.
