@@ -1,0 +1,30 @@
+/* Night Mode */
+
+body {
+    background:#222;
+}
+
+#content {
+    background:#333;
+    color:#eee;
+}
+
+#head {
+    color:white;
+}
+
+#head h1 span.currentpage {
+    color:#aaa;
+}
+
+a {
+    color:white;
+}
+
+#content p {
+    color:#ccc;
+}
+
+blockquote {
+    color:#ddd;
+}

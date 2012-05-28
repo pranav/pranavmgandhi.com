@@ -1,0 +1,67 @@
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans' rel='stylesheet' type='text/css'>
+    <title>Pranav M Gandhi - Hacker Extraordinaire</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        // Initialize the pages array
+        var pages = [];
+        $.getJSON('data.json', function(data){
+            pages = data;
+            // If there is already a page in the url, load it
+            if(window.location.hash.substring(1) in data)
+                load(window.location.hash.substring(1));
+            // If there isn't a page already in the url, load welcome
+            else 
+                load("welcome");
+        });
+
+
+
+        // Load the page (key) into #content from the array of pages
+        function load(page){
+            $('#content').html(pages[page]);
+            $('.currentpage').html($('a[href="#'+page+'"]').html());
+            $('title').html("Pranav Gandhi - "+$('a[href="#'+page+'"]').html().substring(1));
+        }
+
+        // Load the page when clicking on the links
+        $('.linklist a').live('click',function(e){
+            if($(this).attr("href") == "#nightmode"){
+                e.preventDefault();
+                $('head').append("<link id=\"nightmodecss\" rel=stylesheet href=nightmode.css>");
+                $(this).attr('href', "#daymode");
+                $(this).html("#Day Mode");
+            } else if($(this).attr("href") == "#daymode"){
+                e.preventDefault();
+                $("#nightmodecss").remove();
+                $(this).attr("href", "#nightmode");
+                $(this).html("#Night Mode");
+            } else
+                load($(this).attr('href').substring(1));  
+        });
+                  
+    });
+
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="head">
+            <h1>Pranav Gandhi/<span class="currentpage"></span></h1>
+        </div>
+        <div class="linklist">
+                <a href="#welcome">#Welcome</a>
+                <a href="#aboutme">#About Me</a>
+                <a href="#realmofracket">#Realm of Racket</a>
+                <a href="#cloud">#Cloud</a>
+                <a href="#pbrane">#pBrane</a>
+                <a href="#resume">#Resume</a>
+                <a href="#nightmode">#Night Mode</a>
+        </div>
+        <div id="content"></div>
+    </div>
+</body>
+</html>
