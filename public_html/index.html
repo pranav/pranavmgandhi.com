@@ -29,10 +29,20 @@
 
         // Load the page when clicking on the links
         $('.linklist a').live('click',function(e){
-            load($(this).attr('href').substring(1));
+            if($(this).attr("href") == "#nightmode"){
+                e.preventDefault();
+                $('head').append("<link id=\"nightmodecss\" rel=stylesheet href=nightmode.css>");
+                $(this).attr('href', "#daymode");
+                $(this).html("#Day Mode");
+            } else if($(this).attr("href") == "#daymode"){
+                e.preventDefault();
+                $("#nightmodecss").remove();
+                $(this).attr("href", "#nightmode");
+                $(this).html("#Night Mode");
+            } else
+                load($(this).attr('href').substring(1));  
         });
-
-        
+                  
     });
 
     </script>
@@ -49,6 +59,7 @@
                 <a href="#cloud">#Cloud</a>
                 <a href="#pbrane">#pBrane</a>
                 <a href="#resume">#Resume</a>
+                <a href="#nightmode">#Night Mode</a>
         </div>
         <div id="content"></div>
     </div>
